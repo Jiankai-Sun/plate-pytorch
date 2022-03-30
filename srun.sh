@@ -1,0 +1,15 @@
+srun --gres=gpu:GTX1080Ti:1 --nodelist=chpc-gpu002 python -u train_gpt.py --coord_feature_dim 256 \
+                --batch_size 90 \
+                --root_frames snapshot_v0/ \
+                --json_data_train snapshot_v0/train.json   \
+                --json_data_val snapshot_v0/val.json   \
+                --json_file_labels snapshot_v0/class_dict.json \
+                --num_boxes 30 \
+                --dataset crosstask \
+                --model global_i3d \
+                --search_method beam \
+                --gpt_repr one \
+                --generation_method autoregression \
+                --sample_eval_gpt True \
+                --pred_state_action True \
+                --lr 0.01
