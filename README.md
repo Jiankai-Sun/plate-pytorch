@@ -7,7 +7,7 @@
 - [CrossTask](https://github.com/DmZhukov/CrossTask) Dataset
 
 ## Data Preparation
-Follow this folder structure:
+Follow this folder structure to prepare the dataset:
 ```
 .
 └── crosstask
@@ -18,7 +18,7 @@ Follow this folder structure:
         ├── videos.csv
         └── videos_val.csv
 ```
-The data root is set as `train_gpt.py#L244`
+The data root is set here [train_gpt.py](https://github.com/Jiankai-Sun/plate-pytorch/blob/main/train_gpt.py#L203).
 
 ## How to Run
 ```
