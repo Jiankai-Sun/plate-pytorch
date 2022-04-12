@@ -1,5 +1,9 @@
 srun --gres=gpu:GTX1080Ti:1 --nodelist=chpc-gpu002 python -u train_gpt.py --coord_feature_dim 256 \
                 --batch_size 90 \
+                --root_frames None \
+                --json_data_train None   \
+                --json_data_val None   \
+                --json_file_labels None \
                 --num_boxes 30 \
                 --dataset crosstask \
                 --model global_i3d \
