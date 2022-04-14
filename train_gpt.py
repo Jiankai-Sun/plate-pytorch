@@ -26,10 +26,10 @@ parser = argparse.ArgumentParser(description='PyTorch Smth-Else')
 
 parser.add_argument('--model',
                     default='coord')
-parser.add_argument('--root_frames', type=str, help='path to the folder with frames')
-parser.add_argument('--json_data_train', type=str, help='path to the json file with train video meta data')
-parser.add_argument('--json_data_val', type=str, help='path to the json file with validation video meta data')
-parser.add_argument('--json_file_labels', type=str, help='path to the json file with ground truth labels')
+parser.add_argument('--root_frames', default='', type=str, help='path to the folder with frames')
+parser.add_argument('--json_data_train', default='', type=str, help='path to the json file with train video meta data')
+parser.add_argument('--json_data_val', default='', type=str, help='path to the json file with validation video meta data')
+parser.add_argument('--json_file_labels', default='', type=str, help='path to the json file with ground truth labels')
 parser.add_argument('--img_feature_dim', default=256, type=int, metavar='N',
                     help='intermediate feature dimension for image-based features')
 parser.add_argument('--coord_feature_dim', default=128, type=int, metavar='N',
@@ -70,7 +70,7 @@ parser.add_argument('--num_frames', default=4, type=int,
                     help='num of frames for the model')
 parser.add_argument('--action_feature_dim', default=8, type=int,
                     help='action feature dim')
-parser.add_argument('--dataset', default='smth_smth',
+parser.add_argument('--dataset', default='crosstask',
                     help='which dataset to train')
 parser.add_argument('--logdir', default='./logs',
                     help='folder to output tensorboard logs')
