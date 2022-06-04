@@ -11,7 +11,6 @@ Follow this folder structure to prepare the dataset:
 ```
 .
 └── crosstask
-    ├── bbox
     ├── crosstask_features
     └── crosstask_release
         ├── tasks_primary.txt
