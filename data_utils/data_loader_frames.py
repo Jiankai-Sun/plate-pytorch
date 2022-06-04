@@ -134,7 +134,6 @@ class VideoFolder(torch.utils.data.Dataset):
             '''
             .
             └── crosstask
-                ├── bbox
                 ├── crosstask_features
                 └── crosstask_release
                     ├── tasks_primary.txt
@@ -148,7 +147,6 @@ class VideoFolder(torch.utils.data.Dataset):
                 root, 'crosstask_release', 'videos.csv')
             self.features_path = os.path.join(root, 'crosstask_features')
             # baseline
-            self.bbox_path = os.path.join(root, 'bbox_v0')
             self.constraints_path = os.path.join(
                 root, 'crosstask_release', 'annotations')
 
@@ -185,8 +183,6 @@ class VideoFolder(torch.utils.data.Dataset):
                     task, vid = all_vids[idx]
                     video_path = os.path.join(
                         self.features_path, str(vid)+'.npy')
-                    bbox_path = os.path.join(
-                        self.bbox_path, task + '_' + str(vid)+'.pkl')
                     json_data.append({'id': {'vid': vid, 'task': task, 'feature': video_path, 'bbox': ''},
                                       'instruction_len': self.n_steps[task]})
                 print('All primary task videos: {}'.format(len(json_data)))
@@ -463,8 +459,6 @@ class VideoFolder(torch.utils.data.Dataset):
                         start_range_idx[0], min(start_range_idx[1], len(orig_bbox)))
                     label = labels_matrix[start_idx]  # labels:  (2, 133,)
                 except:
-                    print('len(legal_range): ', len(legal_range), 'len(orig_bbox): ', len(orig_bbox),
-                          os.path.join(self.bbox_path, folder_id['task'] + '_' + folder_id['vid'] + '.pkl'), flush=True)
                     start_idx = 0
                     label = labels_matrix[start_idx]  # labels:  (2, 133,)
 
